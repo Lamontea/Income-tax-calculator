@@ -1,0 +1,60 @@
+# Get User info
+name = (input("What is your name?: "))
+num_jobs = (input("Do you have (1) one or (2) more than one job? Enter 1 or 2: "))
+
+#if statement to get job info
+if num_jobs == "1":
+    job1 = (input("What is your job?: "))
+    income1 = float(input("How much do you earn in a week (USD)?: "))
+    income2 = 0 # Set second income to zero since only one job is being calculated
+    job2 = "" # Empty string for second job
+elif num_jobs == "2":
+    job1 = (input("What is your first job?: "))
+    income1 = float(input("How much do you earn in a week (USD)?: "))
+    job2 = (input("What is your second job?: "))
+    income2 = float(input("How much do you earn in a week (USD)?: "))
+else:
+    print("Invalid input. Please enter 1 or 2.")
+    exit()
+
+# Calculate total income
+total_weekly = income1 + income2
+total_monthly = total_weekly * 4.33 # 4.33 weeks/month average (52 paychecks yearly)
+total_yearly = total_monthly * 12
+
+# Tax estimation (using the median US tax rate in 2025)
+while True:
+    try:
+        tax_rate = float(input("What is your tax rate? (ex: 0.24) "))
+        if 0 <= tax_rate <= 1: #assuming tax rate is between 0% and 100% (0.00 to 1.00)
+            break
+        else:
+            print("Please enter a value between 0 and 1 (e.g., 0.24 for 24%).")
+    except ValueError:
+        print("Invalid input. Please enter a number (e.g., 0.24.")
+estimated_tax = total_yearly * tax_rate
+
+#Calculate tax percentage
+tax_percentage = (estimated_tax/total_yearly) * 100
+
+# Results giving you your income and tax info
+print("\nHello " + name + "! Here's your income and tax information:")
+print("--------------------------------------------------")
+if num_jobs == "1":
+    print("Job: " + job1) # Since you only work one job, this will only show the first job
+else:
+    print("Your jobs: " + job1 + " and " + job2) # If you work two jobs, this will show both jobs
+print("- Weekly income: $" +f"{total_weekly:.2f}")
+print("- Monthly income: $" +f"{total_monthly:.2f}")
+print("- Yearly income: $" +f"{total_yearly:.2f}")
+print(f"\n Tax estimation ({tax_rate*100:.1f}% tax rate:")
+print("- Weekly tax: $" +f"{estimated_tax/52:.2f}")
+print("- Monthly tax: $" +f"{estimated_tax/12:.2f}")
+print("- Yearly tax: $" +f"{estimated_tax:.2f}")
+print(f"-{tax_percentage:.1f}% of your income goes to tax")
+print("\nNet income after tax:")
+print("- Weekly: $" +f"{total_weekly - (estimated_tax/52):.2f}")
+print("- Monthly: $" +f"{total_monthly - (estimated_tax/12):.2f}")
+print("- Yearly: $" +f"{total_yearly - estimated_tax:.2f}")
+print("--------------------------------------------------")
+print("\nIf you have any questions please email us. Have a great day")
