@@ -1,0 +1,37 @@
+# Update Log
+
+This document highlights the key differences and changes made between versions.  
+This log will be updated as new versions are released.
+
+---
+
+## Income Tax Calculator v1
+- Uses a fixed tax rate of 24%.
+- Tax rate is hardcoded and cannot be changed.
+- Calculates weekly, monthly, and yearly income and tax.
+- Supports one or two jobs.
+- Basic input validation.
+
+---
+
+## Income Tax Calculator v2
+- Allows the user to input their own tax rate (e.g., 0.24 for 24%).
+- Includes input validation for the tax rate (must be between 0 and 1).
+- Calculates and displays the percentage of income paid in tax.
+- Retains all features from v1 (weekly, monthly, yearly calculations; support for one or two jobs).
+- Improved user experience with more flexible tax estimation.
+
+---
+
+## Summary Table
+
+| Feature                        | v1         | v2         |
+|--------------------------------|------------|------------|
+| Fixed tax rate (24%)           | Yes        | Optional   |
+| User input for tax rate        | No         | Yes        |
+| Tax percentage display         | No         | Yes        |
+| Input validation for tax rate  | No         | Yes        |
+| Supports 1 or 2 jobs           | Yes        | Yes        |
+| Income calculations            | Yes        | Yes        |
+
+---
