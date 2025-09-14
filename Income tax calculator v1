@@ -26,7 +26,7 @@ total_yearly = total_monthly * 12
 tax_rate = .24
 estimated_tax = total_yearly * tax_rate
 
-# Results gving you your income and tax info
+# Results giving you your income and tax info
 print("\nHello " + name + "! Here's your income and tax information:")
 print("--------------------------------------------------")
 if num_jobs == "1":
